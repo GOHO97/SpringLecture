@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var inputDate = null;
+		var url = null;
+		var inPassenger = [{label:"1호선", y:0}];
+		var outPassenger = [{label:"1호선", y:0}];
+		var ii = 0;
+		$("input").keyup(function(e) {
+			if(e.keyCode == 13){
+				inputDate = $(this).val();
+			 	url = "http://openapi.seoul.go.kr:8088/575a4655496b636839386f58586542/json/CardSubwayStatsNew/1/1000/" + inputDate;
+			 	$.getJSON(url, function(subwayData) {
+					$.each(subwayData.CardSubwayStatsNew.row, function(i, sd) {
+						if(inPassenger[ii].label == sd.LINE_NUM){
+					 		inPassenger[ii].y += sd.RIDE_PASGR_NUM * 1;
+					 		outPassenger[ii].y += sd.ALIGHT_PASGR_NUM * 1;
+						} else {
+							ii++;
+				 			inPassenger[ii] = {
+				 				label: sd.LINE_NUM,
+				 				y: sd.RIDE_PASGR_NUM * 1,
+				 			};
+				 			outPassenger[ii] = {
+					 			label: sd.LINE_NUM,
+					 			y: sd.ALIGHT_PASGR_NUM * 1,
+					 		};
+				 		}
+					});
+					var chart = new CanvasJS.Chart("chartContainer", {
+						
+						title:{
+							text: "서울시 호선별 승하차 객수",
+							fontColor: "#000000",
+							backgroundColor: "#FFD600",
+						},
+						data: [              
+						{
+							type: "stackedColumn",
+							legendText: "승차객수",
+							showInLegend: "true",
+							dataPoints: inPassenger
+						}, {
+							type: "stackedColumn",
+							legendText: "하차객수",
+							showInLegend: "true",
+							dataPoints: outPassenger
+						}
+						]
+					});
+					chart.render();
+				});
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<input>
+	<hr>
+	<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</body>
+</html>

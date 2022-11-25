@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ho.aug161classic.share.ShareMapper">
+	<insert id="sWrite" parameterType="com.ho.aug161classic.share.SWriteData">
+		insert into shareDoc values(shareDoc_seq.nextval, #{s_title}, #{s_txt}, sysdate)
+	</insert>
+	<select id="sShow" resultType="com.ho.aug161classic.share.SWriteData" parameterType="com.ho.aug161classic.SearchOption">
+		select * from (select rownum as rn, s_no, s_title, s_date from (select rownum, s_no, s_title, s_date from SHAREDOC where s_title like '%'||#{search}||'%' or s_txt like '%'||#{search}||'%' order by s_no desc)) where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	<select id="sShowBoardCount" resultType="java.lang.Integer" parameterType="com.ho.aug161classic.SearchOption">
+		select count(*) from shareDoc where s_title like '%'||#{search}||'%' or s_txt like '%'||#{search}||'%' order by s_no desc
+	</select>
+</mapper>

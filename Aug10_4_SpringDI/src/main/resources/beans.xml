@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean name="d1" class="com.ho.aug104springdi.dog.Dog">
+		<property name="name" value="철수"></property>
+		<property name="age" value="3"></property>
+	</bean>
+	<bean name="d2" class="com.ho.aug104springdi.dog.Dog">
+		<constructor-arg value="영수"></constructor-arg>
+		<constructor-arg value="2"></constructor-arg>
+	</bean>
+	<bean name="d3" class="com.ho.aug104springdi.dog.Dog">
+		<property name="name" value="준희"></property>
+		<property name="age" value="24"></property>
+	</bean>
+	<bean name="d4" class="com.ho.aug104springdi.dog.Dog">
+		<constructor-arg value="영덕"></constructor-arg>
+		<constructor-arg value="1"></constructor-arg>
+	</bean>
+	<bean name="sdf" class="java.text.SimpleDateFormat">
+		<constructor-arg value="yyyy/MM/dd"></constructor-arg>
+	</bean>
+</beans>

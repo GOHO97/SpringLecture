@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="chating.css">
+<script type="text/javascript" src="http://sdgn-djvemfu.tplinkdns.com:9999/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+$(function() {
+	var socket = io.connect("http://sdgn-djvemfu.tplinkdns.com:9999");
+	$("#chatInput").keyup(function(e) {
+		if(e.keyCode == 13){
+			var txt ={
+				w: "서영덕",					
+				m: $(this).val(),
+				c: null
+			} 
+			socket.emit("myData", txt);
+			$(this).val("");
+		}
+	});
+	socket.on("yourData", function(vasd) {
+		var td = $("<td></td>").text(vasd.w +" " + vasd.m).attr("class", "chatTd");
+		var tr = $("<tr></tr>").append(td);
+		$("#chatTable").append(tr);
+	})
+});
+</script>
+</head>
+<body>
+<table id="phoneCover"></table>
+	<div id="phoneMain">
+		<div id="chatDiv">
+			<table id="chatTable">
+				<tr>
+					<td class="chatTd">
+						와우와우
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="inputDiv">
+			<input id="chatInput">
+			<input type="hidden" value="">
+		</div>
+		<div id="typingDiv">
+			<img src="typing.PNG">
+		</div>
+	</div>		
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("button").click(function() {
+			var s_name = $("#nameInput").val();
+			var s_price = $("#priceInput").val();
+			$.ajax({
+				url: "http://192.168.0.158:5343/snack.reg",
+				data: {n:s_name, p:s_price},
+				success: function() {
+				setInterval(function() {
+					$.ajax({
+						url: "http://192.168.0.158:5343/snack.get",
+						success: function(snacks) {
+							
+								$("table").empty();
+								$.each(snacks, function(i, s) {
+									var d = new Date(s.s_exp);
+									var nTd = $("<td></td>").text(s.s_name);
+									var pTd = $("<td></td>").text(s.s_price);
+									var dTd = $("<td></td>").text((d.getMonth() +1) + "/" + d.getDate());
+									var tr = $("<tr></tr>").append(nTd, pTd, dTd);
+									$("table").append(tr);
+								});
+						}
+					});
+				}, 1000);
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<input id="nameInput"><br>
+	<input id="priceInput"><br>
+	<button>등록</button>
+	<hr>
+	<table border="1">
+	</table>
+</body>
+</html>

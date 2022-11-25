@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;TokenGenerator.java&apos; to &apos;mgz/src/main/java/com.ho.mgz.gallery&apos;&#x0D;&#x0A;- Original project: &apos;Aug16_1_classic&apos;&#x0D;&#x0A;- Destination element: &apos;mgz/src/main/java/com.ho.mgz.gallery&apos;&#x0D;&#x0A;- Original element: &apos;com.ho.aug161classic.share.TokenGenerator.java&apos;" description="Copy compilation unit" destination="=mgz/src\/main\/java&lt;com.ho.mgz.gallery" element1="/src\/main\/java&lt;com.ho.aug161classic.share{TokenGenerator.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1661129508264" units="1" version="1.0"/>
+</session>

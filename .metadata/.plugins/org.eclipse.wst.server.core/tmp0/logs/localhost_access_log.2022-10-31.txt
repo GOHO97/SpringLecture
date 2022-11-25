@@ -1,0 +1,7 @@
+14.32.49.109 - - [31/Oct/2022:11:23:37 +0900] "GET /mgz/index HTTP/1.1" 200 3721
+14.32.49.109 - - [31/Oct/2022:11:23:37 +0900] "GET /mgz/resources/js/joinChecker.js HTTP/1.1" 304 -
+14.32.49.109 - - [31/Oct/2022:11:23:37 +0900] "GET /mgz/resources/js/mgzJQuery.js HTTP/1.1" 304 -
+14.32.49.109 - - [31/Oct/2022:11:23:37 +0900] "GET /favicon.ico HTTP/1.1" 404 818
+14.32.49.109 - - [31/Oct/2022:11:23:51 +0900] "POST /mgz/login HTTP/1.1" 200 3614
+14.32.49.109 - - [31/Oct/2022:11:23:51 +0900] "GET /mgz/resources/profilePhoto/34.PNG HTTP/1.1" 404 721
+14.32.49.109 - - [31/Oct/2022:11:24:03 +0900] "GET /mgz/logout HTTP/1.1" 200 3721

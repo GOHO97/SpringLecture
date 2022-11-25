@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	
+	$(function(){
+		var x = 0;
+		$("html").keydown(function (e) {
+			if(e.keyCode == 39){
+				x += 5;
+				$("input").css("left", x + "px");
+			}
+		});
+		$("input").keydown(function() {
+			if(e.keyCode == 65) {
+				return false;
+			}
+		});
+		//키보드 기능
+		$("input").keyup(function() {
+			alert(e.keyCode);
+		});
+		// 키마다 아스키 값
+		
+	});
+</script>
+<style type="text/css">
+
+input{
+	position: fixed;
+}
+</style>
+</head>
+<body>
+	<input>
+</body>
+</html>

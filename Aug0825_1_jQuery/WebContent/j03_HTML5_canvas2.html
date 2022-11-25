@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function init() {
+		var paper = document.getElementById("paper");
+		var pen = paper.getContext("2d");		
+		
+		function getRandColor() {
+			//Math.round() : 반올림, 소수점 삭제
+			var r = Math.round(Math.random() * 255);
+			var g = Math.round(Math.random() * 255);
+			var b = Math.round(Math.random() * 255);
+			return "rgb(" + r + "," + g + "," + b + ")"; //rgb 값엔 정수만 들어가야 함.
+		}
+		
+		setInterval(function() {
+			pen.save();
+			pen.fillStyle = "#00000011";
+			pen.fillRect(0, 0, 500, 500);
+			
+			pen.shadowBlur = 10;
+			pen.shadowColor = "white";
+			pen.fillStyle = getRandColor();
+			// Math.random() : 0.000 ~ 1.0000직전
+			var x = Math.random() * 500; //캔버스 크기
+			var y = Math.random() * 500;
+			pen.fillRect(x, y, 10, 10);
+			pen.restore();
+		}, 30);
+	}
+
+</script>
+<style type="text/css">
+canvas{
+	border: black solid 3px;
+}
+</style>
+</head>
+<body onload="init();">
+	<canvas id="paper" width="500px" height="500px"></canvas>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="humanMapper">
+	<select id ="getAllHuman" resultType="com.ho.aug082MyBatis.Human">
+		select * from anyany2
+	</select>
+	
+	<insert id ="regHuman" parameterType="com.ho.aug082MyBatis.Human">
+		insert into anyany2 values(#{a_name}, #{a_age})	
+	</insert>
+	
+	<select id ="getHumanAge" parameterType="com.ho.aug082MyBatis.Human" resultType="com.ho.aug082MyBatis.Human">
+		select a_name, a_age from anyany2 where a_name like '%'||#{a_name}||'%'
+	</select>
+	
+	<select id ="getHumanName" parameterType="com.ho.aug082MyBatis.Human" resultType="com.ho.aug082MyBatis.Human">
+		select a_name from anyany2 where a_age = #{a_age}
+	</select>
+	
+	<select id="getHumanByNo" parameterType="com.ho.aug082MyBatis.Human" resultType="com.ho.aug082MyBatis.Human">
+		select rownum, a_name, a_age from(select * from ANYANY2 order by a_age) where rownum &lt;=#{a_age}	
+	</select>
+	
+	<update id="updateHuman" parameterType="com.ho.aug082MyBatis.SearchOption">
+		update anyany2
+		set a_name = #{changeName}
+		where a_age = #{a_age} and a_name = #{a_name}
+	</update>
+</mapper>

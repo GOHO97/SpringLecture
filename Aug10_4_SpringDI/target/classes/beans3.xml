@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+<bean name="h1" class="com.ho.aug104springdi.kimsumi.Kimsumi">
+	<property name="name" value="김수미"></property>
+	<property name="age" value="60"></property>
+</bean>
+<bean name="g1" class="com.ho.aug104springdi.gejang.Gejang">
+	<property name="name" value="양념게장"></property>
+	<property name="price" value="45000"></property>
+</bean>
+
+<bean name="g2" class="com.ho.aug104springdi.gejang.Gejang">
+	<property name="name" value="추석 특선 종합 게장 세트"></property>
+	<property name="price" value="86000"></property>
+</bean>
+	<context:annotation-config></context:annotation-config>
+</beans>

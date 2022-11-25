@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	var iInput = null;
+	function init(){
+		// interpreter 방식 주제에, 문법이 길다
+		iInput = document.getElementById("i");		
+	}
+	
+	function print() {
+		alert(iInput.value);
+	}
+</script>
+</head>
+<body onload="init();">
+	<input id="i">
+	<!-- 
+		Dom객체에 직접 연결해주는
+		소스 길면 찾기 힘들다
+		같은 기능 여러군데 연결시킬 때
+	 -->
+	<button onclick="print();">버튼</button>
+	<button onclick="print();">버튼2</button>
+</body>
+</html>

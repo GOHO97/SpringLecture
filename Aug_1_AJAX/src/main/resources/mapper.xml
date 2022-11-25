@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ho.aug29ajax.Mapper">
+	<select id="showTable" resultType ="com.ho.aug29ajax.Abcdefu">
+		select * from abcdefu
+	</select>
+	<select id="showTable2" resultType="com.ho.aug29ajax.Abcdefu2" parameterType="com.ho.aug29ajax.SearchOption">
+		select * from(select rownum as rn, a_no, a_a from(select * from abcdefu order by a_no)) where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+</mapper>

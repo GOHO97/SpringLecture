@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$("select").change(function () {
+			alert($(this).val());
+		});
+		
+		//document : 이 html
+		//window : 브라우저[디자인]
+		//navigator : 브라우저[기능]
+		
+		$(window).resize(function () {
+			$("h1").text($(window).width() + "," + $(window).height());
+		});
+		// 브라우저의 크기를 변경했을 때 alert 실행(바꿀 때와 바꾸기 완료 했을 때 두번 실행 됨.)
+		
+		$(window).scroll(function () {
+			//html의 높이
+			var htmlHeight = $(document).height();
+			// 브라우저의 높이
+			var browserHeight = $(window).height();
+			// 브라우저에서 짤린 html의 윗 부분
+			var scrollTop = $(window).scrollTop();
+			// 스크롤 바텀이 없어서 브라우저 높이 만큼 스크롤 탑을 더하면 브라우저 하단이 된다.
+			var scrollBottom = scrollTop + browserHeight;
+			// - 50은 정확히 맞추기 애매한 경우가 있어서 빼줌.
+			if(scrollBottom >= htmlHeight - 50){
+				var h2 = $("<h2></h2>").text("ㅋㅋㅋ");				
+				$("body").append(h2);
+			}
+			// 바닥에 닿으면 ㅋㅋㅋㅋ h2 문자열이 생김.
+		});
+		
+		
+		$("button").click(function () {
+			alert($("input").val());
+		});
+		
+		//input에서 엔터치면 버튼 누른거랑 똑같게
+		$("input").keyup(function (e) {
+			if(e.keyCode == 13){
+				//강제 이벤트 발생
+				$("button").trigger("click");
+			}
+		});
+		
+	});
+	
+</script>
+</head>
+<body>
+	<input>
+	<button>버튼 1</button>
+
+	<select>
+		<option>ㅋㅋ</option>
+		<option>ㅎㅎ</option>
+		<option>ㅇㅇ</option>
+	</select>
+	<h1>dd</h1>
+	<h2>zzzz</h2>
+	<hr>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+	zzzzzzzzzzzzzzzzzzzzzzzzzzzz<br>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ho.aug123total.nickname.NicknameMapper">
+	<insert id="regNickname" parameterType="com.ho.aug123total.nickname.Nickname">
+		insert into aug12_nickname values(aug12_seq.nextval, #{n_name}, #{n_nickname}, sysdate)
+	</insert>
+</mapper>

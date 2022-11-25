@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<bean name="d1" class="com.ho.aug104springdi.dog.Dog">
+		<property name="name" value="김지민"></property>
+		<property name="age" value="2"></property>
+	</bean>
+	
+	<bean name="human1" class="com.ho.aug104springdi.human.Human">
+		<property name="name" value="윤경호"></property>
+		<property name="age" value="26"></property>
+		<property name="pet" ref="d1"></property>
+		<property name="nicknames">
+			<list value-type="java.lang.String">
+				<value>바보</value>
+				<value>멍청이</value>
+				<value>똥개</value>
+			</list>
+		</property>
+		<property name="stat">
+			<map key-type="java.lang.String" value-type="java.lang.Double">
+				<entry key="HP" value="100"></entry>
+				<entry key="MP" value="50"></entry>
+			</map>
+		</property>
+	</bean>
+	
+	<bean name="human2" class="com.ho.aug104springdi.human.Human">
+		<constructor-arg value="장준희"></constructor-arg>
+		<constructor-arg value="24"></constructor-arg>
+		<constructor-arg ref="d1"></constructor-arg>
+		<constructor-arg>
+			<list value-type="java.lang.String">
+				<value>미역 머리</value>
+				<value>수원시 개최 미남대회 1등</value>
+				<value>솔데스크 공식 얼짱</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.lang.Double">
+				<entry key="height" value="182"></entry>
+				<entry key="weight" value="72"></entry>
+				<entry key="iq" value="130"></entry>
+				<entry key="hip" value="32"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>

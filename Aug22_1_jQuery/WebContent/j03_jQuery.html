@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$("#b1").click(function () {
+			$("h1").css("color", "red");
+			$("h1").css("background-color", "yellow").css("font-size", "10pt");
+		});
+		
+		$("#b2").click(function (){
+			var c = $("h1").css("color");
+			alert(c);
+		});
+		
+		var black = true;
+		$("#b3").click(function aaa() {
+			if(black){
+				$("h1").css("color", "red");
+			} else {
+				$("h1").css("color", "black");
+			}
+			black = !black;
+		});
+		
+		
+	});
+</script>
+</head>
+<body>
+	<h1>ㅋ</h1>
+	<button id="b1">버튼</button>
+	<button id="b2">버튼2</button>
+	<button id="b3">버튼3</button>
+	
+</body>
+</html>

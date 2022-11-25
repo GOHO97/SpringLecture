@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function init() {
+		var paper = document.getElementById("paper");
+		var pen = paper.getContext("2d");		
+		
+		pen.fillRect(10, 20, 30, 40); // x, y, w, h
+		
+		pen.fillStyle = "#FF0000"; //채워서 그릴 때 펜 색
+		pen.fillRect(40, 60, 100, 100);
+		
+		pen.strokeStyle = "0000FF"; // 선 그릴 때 펜 색
+		pen.lineWidth = 3;
+		pen.beginPath();// 새 선 그리기 시작
+		pen.moveTo(50, 30); // x, y
+		pen.lineTo(100, 100); //x, y
+		pen.closePath(); // 선 끝
+		//펜 한테 앞으로 이렇게 움직이라고 정보를 준 셈.
+		pen.stroke(); // 그 정보대로 그리기
+		
+		
+		var apple = new Image();
+		apple.src = "3.PNG";
+		apple.onload = function () {
+			pen.drawImage(apple, 200, 200, 100, 100); //객체, x, y, w, h
+		};
+		
+		pen.save(); // 위 까지의 펜 상태를 저장
+		
+		pen.fillStyle = "green";
+		pen.shadowOffsetX = 3; // 그림자 얼마나 떨어져서 나올 것인지
+		pen.shadowOffsetY = 5;
+		pen.shadowBlur = 4;
+		pen.shadowColor = "orange"; // 펜에 그림자를 설정하는 것이다.
+		pen.fillRect(160, 100, 30, 50);
+		
+		pen.restore(); // 저장된 펜 상태 불러오기
+		pen.fillStyle = "black";
+		pen.fillRect(50, 200, 50, 50);
+	}
+
+</script>
+<style type="text/css">
+canvas{
+	border: black solid 3px;
+}
+</style>
+</head>
+<body onload="init();">
+	<canvas id="paper" width="500px" height="500px"></canvas>
+</body>
+</html>

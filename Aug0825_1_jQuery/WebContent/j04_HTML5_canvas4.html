@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function () {
+		
+		var canvasX = $("#paper").offset().left;
+		var canvasY = $("#paper").offset().top;
+		
+		var paper = document.getElementById("paper");
+		var pen = paper.getContext("2d");		
+		
+		var apple = new Image();
+		apple.src = "3.PNG";
+		
+		var aX = 40;
+		var aY = 20;
+		var xSpd = 8;
+		var ySpd = 8;
+		
+		var barX = 525;
+		
+		
+		apple.onload = function () {
+			var t = setInterval(function() {
+				
+				if(aX >= 1149 || aX <= 0){
+					xSpd *= -1;
+				}
+				
+				if(aY <= 0){
+					ySpd *= -1;
+				}
+				
+				if(aY + 40 >= 450 && aX >= barX - 20 && aX + 40 <= barX + 170){
+					ySpd *= -1;
+				}
+				
+				if(aY >= 460) {
+					clearInterval(t);
+				}
+				
+				pen.save();
+				pen.fillStyle = "#00000033";
+				pen.fillRect(0,0,1200,500);
+				aX += xSpd; 
+				aY += ySpd;
+				pen.shadowBlur = 10;
+				pen.shadowColor = "orange";
+				pen.drawImage(apple, aX, aY, 40, 40);
+				
+				pen.shadowColor = "white";
+				pen.fillStyle = "#43a047";
+				pen.fillRect(barX, 460, 150, 20);
+				
+				pen.restore();
+			}, 10);
+			
+		};
+		
+		$("canvas").mousemove(function(e) {
+			barX = e.pageX - canvasX - 75;
+		});
+		
+	});
+
+</script>
+<style type="text/css">
+canvas{
+	border: black solid 3px;
+}
+img{
+width: 50px;
+}
+</style>
+</head>
+<body onload="init();">
+	<canvas id="paper" width="1200px" height="500px"></canvas>
+</body>
+</html>

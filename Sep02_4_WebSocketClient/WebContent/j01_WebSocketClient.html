@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://sdgn-djvemfu.tplinkdns.com:9999/socket.io/socket.io.js"></script>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var socket = io.connect("http://sdgn-djvemfu.tplinkdns.com:9999");
+		$("input").keyup(function(e) {
+			if(e.keyCode == 13){
+				var txt = $(this).val();
+				socket.emit("myData", txt);
+				$(this).val("");
+			}
+		});
+		socket.on("yourData", function(vasd) {
+			var h1 = $("<h1></h1>").text(vasd);
+			$("body").append(h1);
+		})
+	});
+</script>
+</head>
+<body>
+	<input>
+</body>
+</html>

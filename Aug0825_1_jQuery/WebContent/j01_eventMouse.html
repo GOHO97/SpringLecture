@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function () {
+		$("div").mousedown(function() {
+			$("h1").text("mousedown");
+		});
+		$("div").mouseup(function() {
+			$("h1").text("mouseup");
+		});
+		
+		$("div").mouseenter(function() {
+			$("h1").text("mouseenter");
+		});
+		$("div").mousemove(function(e) {
+			$("h1").text(e.pageX + ", " + e.pageY); 
+		});
+		$("div").mouseleave(function() {
+			$("h1").text("mouseleave");
+		});
+		
+		$("html").mousemove(function (e) {
+			$("img").css("left", (e.pageX + 10) + "px");
+			$("img").css("top", (e.pageY + 10) + "px");
+		});
+		
+		// 우클릭해서 브라우저 메뉴 나오려고 할 때
+		$(document).contextmenu(function() {
+			//원래 기능 : 브라우저 메뉴가 나옴
+			return false; //원래 기능 못하게
+		});
+		
+		$("html").mousedown(function (e) {
+			if(e.button == 2) {
+				alert(e.pageX);	
+			}
+		});
+		
+		
+	});
+	
+	
+</script>
+<style type="text/css">
+div{
+	border: black solid 2px;
+	width: 100px; height: 100px;
+}
+
+img{
+	position: fixed;
+	width: 50px;
+}
+</style>
+</head>
+<body>
+	<img src="3.PNG">
+	<div></div>
+	<h1>ㅋ</h1>
+</body>
+</html>

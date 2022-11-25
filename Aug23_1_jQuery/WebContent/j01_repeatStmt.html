@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jQuery.js"></script>
+<script type="text/javascript">
+	$(function() {
+		var ar = [
+			{name: "홍길동", age:30},
+			{name: "김길동", age:28},
+			{name: "최길동", age:35}
+		];
+		/* for (var i = 0; i < ar.length; i++) {
+			alert(ar[i].name + ":" + ar[i].age);
+		} */
+		
+		// $.each(배열명, function(인덱스, 객체){});
+		$.each(ar, function(i, h) {
+			alert(i + "] " + h.name + ":" + h.age);
+		});
+		
+		//$(선택자).each(function(인덱스, 객체){});
+		$("h1").each(function(i, h11) {
+			$(h11).css("font-size", (i+1)*10+"pt");
+		});
+		
+		var css = [
+			{color:"red", bgColor:"green"},
+			{color:"blue", bgColor:"orange"},
+			{color:"yellow", bgColor:"black"}
+		];
+		
+		$("h2").each(function(iii, hhh){
+			$(hhh).css("color", css[iii].color);
+			$(hhh).css("background-color", css[iii].bgColor);
+		});
+		
+		
+		
+	});
+</script>
+</head>
+<body>
+	<h2>ㅋ</h2>
+	<h2>ㅎ</h2>
+	<h2>ㅇ</h2>
+	<h1>ㅋㅋㅋ</h1>
+	<h1>ㅎㅎㅎ</h1>
+	<h1>ㅇㅇㅇ</h1>
+</body>
+</html>
